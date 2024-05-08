@@ -3,12 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="722.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
@@ -20,21 +20,17 @@
       </Label>
       <AnchorPane id="MenuPane" fx:id="LeftAP" prefHeight="454.0" prefWidth="146.0" style="-fx-background-color: #1f7f95;">
          <children>
-            <Button layoutX="30.0" layoutY="172.0" mnemonicParsing="false" onAction="#showWorkers" prefHeight="44.0" prefWidth="86.0" text="Trabajadores" textAlignment="CENTER" />
-            <Button layoutX="36.0" layoutY="355.0" mnemonicParsing="false" onAction="#showLogs" prefHeight="36.0" prefWidth="74.0" text="Reportes" />
-            <Button defaultButton="true" layoutX="36.0" layoutY="272.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="74.0" text="Nomina" />
             <ImageView fitHeight="100.0" fitWidth="114.0" layoutX="16.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
                   <Image url="@Logo.png" />
                </image>
             </ImageView>
+            <Button layoutX="26.0" layoutY="168.0" mnemonicParsing="false" onAction="#showNWorker" prefHeight="44.0" prefWidth="86.0" text="Nuevo Trab." textAlignment="CENTER" />
+            <Button layoutX="26.0" layoutY="358.0" mnemonicParsing="false" onAction="#showLogs" prefHeight="44.0" prefWidth="85.0" text="Reportes" />
+            <Button defaultButton="true" layoutX="27.0" layoutY="295.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="85.0" text="Nomina" />
+            <Button layoutX="26.0" layoutY="230.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" text="Editar Trab." textAlignment="CENTER" />
          </children>
       </AnchorPane>
-      <Label layoutX="150.0" layoutY="169.0" prefHeight="36.0" prefWidth="59.0" text="X" textAlignment="CENTER" textFill="#0d66da">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
       <Button fx:id="BtnNomina" defaultButton="true" layoutX="164.0" layoutY="233.0" mnemonicParsing="false" onAction="#changeNomina" prefHeight="26.0" prefWidth="102.0" text="Nomina" />
       <Button fx:id="BtnAguinaldo" layoutX="279.0" layoutY="233.0" mnemonicParsing="false" onAction="#changeAguinaldo" prefHeight="26.0" prefWidth="102.0" text="Aguinaldo" />
       <AnchorPane id="InfoPMenu" fx:id="AnNominaL" layoutX="163.0" layoutY="271.0" prefHeight="173.0" prefWidth="310.0" style="-fx-background-color: #d9d9d9;">
@@ -51,17 +47,6 @@
             <TextField disable="true" editable="false" layoutX="93.0" layoutY="122.0" prefHeight="25.0" prefWidth="42.0" />
             <Label layoutX="155.0" layoutY="126.0" text="Hora a:" />
             <TextField disable="true" editable="false" layoutX="201.0" layoutY="122.0" prefHeight="25.0" prefWidth="42.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane id="WorkersPane" layoutX="151.0" layoutY="44.0" onDragDetected="#showWorkers" prefHeight="123.0" prefWidth="565.0">
-         <children>
-            <Circle fill="#1f93ff" layoutX="58.0" layoutY="39.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label layoutX="29.0" layoutY="76.0" prefHeight="36.0" prefWidth="59.0" text="X" textAlignment="CENTER">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <Slider layoutX="14.0" layoutY="102.0" prefHeight="14.0" prefWidth="537.0" />
          </children>
       </AnchorPane>
       <AnchorPane id="InfoPMenu" fx:id="AnNominaR" layoutX="488.0" layoutY="271.0" prefHeight="173.0" prefWidth="215.0" style="-fx-background-color: #d9d9d9;">
@@ -84,6 +69,17 @@
             <TextField disable="true" layoutX="201.0" layoutY="105.0" prefHeight="25.0" prefWidth="98.0" />
             <Label layoutX="189.0" layoutY="51.0" text="Antiguedad:" />
             <TextField disable="true" editable="false" layoutX="260.0" layoutY="47.0" prefHeight="25.0" prefWidth="86.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="WorkersPane" layoutX="161.0" layoutY="54.0" prefHeight="123.0" prefWidth="565.0">
+         <children>
+            <SplitMenuButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Trabajador">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" text="Action 2" />
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+               </items>
+            </SplitMenuButton>
          </children>
       </AnchorPane>
    </children>

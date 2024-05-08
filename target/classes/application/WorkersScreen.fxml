@@ -4,96 +4,87 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="722.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
    <children>
-      <Label layoutX="171.0" layoutY="8.0" prefHeight="25.0" prefWidth="257.0" text="Trabajadores">
+      <Label layoutX="171.0" layoutY="8.0" prefHeight="25.0" prefWidth="257.0" text="Nuevo trabajador">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
       <AnchorPane id="MenuPane" fx:id="LeftAP" prefHeight="454.0" prefWidth="146.0" style="-fx-background-color: #1f7f95;">
          <children>
-            <Button defaultButton="true" layoutX="30.0" layoutY="172.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" text="Trabajadores" textAlignment="CENTER" />
-            <Button layoutX="36.0" layoutY="355.0" mnemonicParsing="false" onAction="#showLogs" prefHeight="36.0" prefWidth="74.0" text="Reportes" />
-            <Button layoutX="36.0" layoutY="272.0" mnemonicParsing="false" onAction="#showNomina" prefHeight="36.0" prefWidth="74.0" text="Nomina" />
+            <Button defaultButton="true" layoutX="30.0" layoutY="156.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" text="Nuevo Trab." textAlignment="CENTER" />
+            <Button layoutX="30.0" layoutY="346.0" mnemonicParsing="false" onAction="#showLogs" prefHeight="44.0" prefWidth="85.0" text="Reportes" />
+            <Button layoutX="31.0" layoutY="283.0" mnemonicParsing="false" onAction="#showNomina" prefHeight="44.0" prefWidth="85.0" text="Nomina" />
             <ImageView fitHeight="100.0" fitWidth="114.0" layoutX="16.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
                   <Image url="@Logo.png" />
                </image>
             </ImageView>
+            <Button layoutX="30.0" layoutY="218.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" text="Editar Trab." textAlignment="CENTER" />
          </children>
       </AnchorPane>
-      <Circle fill="#1f7f95" layoutX="238.0" layoutY="187.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label layoutX="150.0" layoutY="169.0" prefHeight="36.0" prefWidth="59.0" text="X" textAlignment="CENTER" textFill="#0d66da">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Circle fill="RED" layoutX="276.0" layoutY="187.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
       <Button fx:id="ButtonInfoP" defaultButton="true" layoutX="161.0" layoutY="233.0" mnemonicParsing="false" onAction="#changeInfoP" prefHeight="26.0" prefWidth="102.0" text="Info. Principal" />
       <Button fx:id="ButtonInfoA" layoutX="276.0" layoutY="233.0" mnemonicParsing="false" onAction="#changeInfoA" prefHeight="26.0" prefWidth="102.0" text="Info. Adicional" />
       <Button fx:id="ButtonHorario" layoutX="391.0" layoutY="233.0" mnemonicParsing="false" onAction="#changeHorario" prefHeight="26.0" prefWidth="102.0" text="Horario" />
-      <Circle fill="#25ff21" layoutX="333.0" layoutY="26.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
       <AnchorPane id="InfoPMenu" fx:id="InfoP" layoutX="163.0" layoutY="271.0" prefHeight="173.0" prefWidth="543.0" style="-fx-background-color: #d9d9d9;">
          <children>
-            <Label layoutX="22.0" layoutY="21.0" text="# Trabajador:" />
-            <TextField layoutX="96.0" layoutY="17.0" prefHeight="25.0" prefWidth="46.0" />
-            <Label layoutX="24.0" layoutY="53.0" text="Nombre:" />
-            <TextField layoutX="75.0" layoutY="49.0" prefHeight="25.0" prefWidth="208.0" />
-            <Label layoutX="24.0" layoutY="87.0" text="Tipo:" />
-            <MenuButton layoutX="64.0" layoutY="83.0" mnemonicParsing="false" text="Selecciona">
+            <Label layoutX="13.0" layoutY="18.0" text="*# Trabajador:" />
+            <TextField fx:id="Tid" layoutX="96.0" layoutY="17.0" prefHeight="25.0" prefWidth="46.0" />
+            <Label layoutX="14.0" layoutY="53.0" text="*Nombre:" />
+            <TextField fx:id="Tname" layoutX="75.0" layoutY="49.0" prefHeight="25.0" prefWidth="208.0" />
+            <Label layoutX="17.0" layoutY="87.0" prefHeight="17.0" prefWidth="33.0" text="*Tipo:" />
+            <MenuButton fx:id="Mtipo" layoutX="64.0" layoutY="83.0" mnemonicParsing="false" text="Selecciona">
               <items>
-                <MenuItem mnemonicParsing="false" text="Obrero" />
-                <MenuItem mnemonicParsing="false" text="Administrativo" />
+                <MenuItem fx:id="MIObrero" mnemonicParsing="false" onAction="#clickOb" text="Obrero" />
+                <MenuItem fx:id="MIAdmin" mnemonicParsing="false" onAction="#clickAd" text="Administrativo" />
               </items>
             </MenuButton>
-            <Label id="InfoAMenu" layoutX="23.0" layoutY="122.0" text="Departamento:" />
-            <TextField layoutX="108.0" layoutY="118.0" prefHeight="25.0" prefWidth="102.0" />
+            <Label id="InfoAMenu" layoutX="22.0" layoutY="122.0" text="*Departamento:" />
+            <TextField fx:id="Tdep" layoutX="108.0" layoutY="118.0" prefHeight="25.0" prefWidth="102.0" />
             <Label layoutX="306.0" layoutY="30.0" text="CURP:" />
-            <TextField layoutX="350.0" layoutY="26.0" prefHeight="25.0" prefWidth="177.0" />
+            <TextField fx:id="Tcurp" layoutX="350.0" layoutY="26.0" prefHeight="25.0" prefWidth="177.0" />
             <Label layoutX="306.0" layoutY="78.0" text="RFC:" />
-            <TextField layoutX="335.0" layoutY="74.0" prefHeight="25.0" prefWidth="192.0" />
-            <Label layoutX="237.0" layoutY="113.0" prefHeight="36.0" prefWidth="102.0" text="Sueldo por hora:" />
-            <TextField layoutX="335.0" layoutY="118.0" prefHeight="25.0" prefWidth="59.0" />
+            <TextField fx:id="Trfc" layoutX="335.0" layoutY="74.0" prefHeight="25.0" prefWidth="192.0" />
+            <Label layoutX="237.0" layoutY="113.0" prefHeight="36.0" prefWidth="102.0" text="*Sueldo por hora:" />
+            <TextField fx:id="Tsueldo" layoutX="335.0" layoutY="118.0" prefHeight="25.0" prefWidth="59.0" />
          </children>
       </AnchorPane>
       <AnchorPane id="InfoMenu" fx:id="InfoA" layoutX="161.0" layoutY="271.0" prefHeight="173.0" prefWidth="543.0" style="-fx-background-color: #d9d9d9;" visible="false">
          <children>
             <Label layoutX="20.0" layoutY="21.0" text="Colonia:" />
-            <TextField layoutX="69.0" layoutY="18.0" prefHeight="25.0" prefWidth="164.0" />
+            <TextField fx:id="Tcol" layoutX="69.0" layoutY="18.0" prefHeight="25.0" prefWidth="164.0" />
             <Label layoutX="20.0" layoutY="53.0" text="Municipio:" />
-            <TextField layoutX="79.0" layoutY="49.0" prefHeight="25.0" prefWidth="128.0" />
+            <TextField fx:id="Tmun" layoutX="79.0" layoutY="49.0" prefHeight="25.0" prefWidth="128.0" />
             <Label layoutX="24.0" layoutY="87.0" text="Calle:" />
             <Label layoutX="395.0" layoutY="52.0" text="Sexo:" />
-            <TextField layoutX="429.0" layoutY="49.0" prefHeight="25.0" prefWidth="102.0" />
+            <TextField fx:id="Tsex" layoutX="429.0" layoutY="49.0" prefHeight="25.0" prefWidth="102.0" />
             <Label layoutX="247.0" layoutY="21.0" text="Telefono:" />
-            <TextField layoutX="306.0" layoutY="17.0" prefHeight="25.0" prefWidth="177.0" />
+            <TextField fx:id="Ttel" layoutX="306.0" layoutY="17.0" prefHeight="25.0" prefWidth="177.0" />
             <Label layoutX="224.0" layoutY="53.0" text="Edo. Civil:" />
-            <TextField layoutX="285.0" layoutY="49.0" prefHeight="25.0" prefWidth="102.0" />
-            <TextField layoutX="57.0" layoutY="83.0" prefHeight="25.0" prefWidth="146.0" />
+            <TextField fx:id="TedoC" layoutX="285.0" layoutY="49.0" prefHeight="25.0" prefWidth="102.0" />
+            <TextField fx:id="Tcalle" layoutX="57.0" layoutY="83.0" prefHeight="25.0" prefWidth="146.0" />
             <Label layoutX="24.0" layoutY="119.0" text="Gdo. Estudios:" />
-            <TextField layoutX="107.0" layoutY="115.0" prefHeight="25.0" prefWidth="102.0" />
+            <TextField fx:id="TgEst" layoutX="107.0" layoutY="115.0" prefHeight="25.0" prefWidth="102.0" />
             <Label layoutX="225.0" layoutY="87.0" text="INE:" />
-            <TextField layoutX="254.0" layoutY="83.0" prefHeight="25.0" prefWidth="243.0" />
+            <TextField fx:id="Tine" layoutX="254.0" layoutY="83.0" prefHeight="25.0" prefWidth="243.0" />
             <Label layoutX="376.0" layoutY="119.0" text="Institución:" />
             <Label layoutX="224.0" layoutY="119.0" text="Carrera:" />
-            <TextField layoutX="270.0" layoutY="115.0" prefHeight="25.0" prefWidth="102.0" />
-            <TextField layoutX="439.0" layoutY="115.0" prefHeight="25.0" prefWidth="88.0" />
+            <TextField fx:id="Tcarr" layoutX="270.0" layoutY="115.0" prefHeight="25.0" prefWidth="102.0" />
+            <TextField fx:id="Tinst" layoutX="439.0" layoutY="115.0" prefHeight="25.0" prefWidth="88.0" />
          </children>
       </AnchorPane>
       <AnchorPane id="InfoMenu" fx:id="Horario" layoutX="162.0" layoutY="271.0" prefHeight="173.0" prefWidth="543.0" style="-fx-background-color: #d9d9d9;" visible="false">
          <children>
-            <TableView layoutX="158.0" prefHeight="179.0" prefWidth="228.0">
+            <TableView fx:id="tHorario" layoutX="158.0" prefHeight="179.0" prefWidth="228.0">
               <columns>
                 <TableColumn prefWidth="75.0" resizable="false" text="Dia" />
                 <TableColumn prefWidth="75.0" resizable="false" text="Entrada" />
@@ -102,16 +93,7 @@
             </TableView>
          </children>
       </AnchorPane>
-      <AnchorPane id="WorkersPane" layoutX="151.0" layoutY="44.0" prefHeight="123.0" prefWidth="565.0">
-         <children>
-            <Circle fill="#1f93ff" layoutX="58.0" layoutY="39.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label layoutX="29.0" layoutY="76.0" prefHeight="36.0" prefWidth="59.0" text="X" textAlignment="CENTER">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <Slider layoutX="14.0" layoutY="102.0" prefHeight="14.0" prefWidth="535.0" />
-         </children>
-      </AnchorPane>
+      <AnchorPane id="WorkersPane" layoutX="161.0" layoutY="54.0" prefHeight="123.0" prefWidth="565.0" />
+      <Button fx:id="btnGuardar" layoutX="645.0" layoutY="234.0" mnemonicParsing="false" onAction="#createWorker" text="Guardar" />
    </children>
 </AnchorPane>
