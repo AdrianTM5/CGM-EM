@@ -216,133 +216,99 @@ public class Controlador
 	 @SuppressWarnings("unchecked")
 	 public void createWorker()
 	 {
-		 JSONArray info = new JSONArray();
+		 JSONObject info = new JSONObject();
 		 
 		 if(Tid.getText() != null)
 		 {
-			 JSONObject id = new JSONObject();
-			 id.put("id", Tid.getText());
-			 info.add(id.toJSONString());
+			 info.put("id", Tid.getText());
 		 }
 		 
 		 if(Tname.getText() != null)
 		 {
-		 	JSONObject name = new JSONObject();
-		 	name.put("name", Tname.getText());
-		 	info.add(name.toJSONString());
+		 	info.put("name", Tname.getText());
 		 }
 		 
 		 if(tip != 0)
 		 {
-			 JSONObject tipo = new JSONObject();
-			 tipo.put("tipo", tip);
-			 info.add(tipo.toJSONString());
+			 info.put("tipo", tip);
 		 }
 		 
 		 if(Tdep.getText() != null)
 		 {
-		 	JSONObject dep = new JSONObject();
-		 	dep.put("dep", Tdep.getText());
-		 	info.add(dep.toJSONString());
+		 	info.put("dep", Tdep.getText());
 		 }
 		 
 		 if(Tsueldo.getText() != null)
 		 {
-			JSONObject sueldo = new JSONObject();
-			sueldo.put("sueldo", Tdep.getText());
-			info.add(sueldo.toJSONString());
+			info.put("sueldo", Tdep.getText());
 		 }
 		 //-----no obligatorios
 		 
 		 if(Tcurp.getText() != null)
 		 {
-			 JSONObject curp = new JSONObject();
-			 curp.put("curp", Tdep.getText());
-			 info.add(curp.toJSONString());
+			 info.put("curp", Tdep.getText());
 		 }
 		 
 		 if(Trfc.getText() != null)
 		 {
-			 JSONObject rfc = new JSONObject();
-			 rfc.put("rfc", Tdep.getText());
-			 info.add(rfc.toJSONString());
+			 info.put("rfc", Tdep.getText());
 		 }
 		 
 		 if(Tcol.getText() != null)
 		 {
-			 JSONObject col = new JSONObject();
-			 col.put("col", Tcol.getText());
-			 info.add(col.toJSONString());
+			 info.put("col", Tcol.getText());
 		 }
 		 
 		 if(Tcol.getText() != null)
 		 {
-			 JSONObject mun = new JSONObject();
-			 mun.put("mun", Tdep.getText());
-			 info.add(mun.toJSONString());
+			 info.put("mun", Tdep.getText());
 		 }
 		 
 		 if(Tcalle.getText() != null)
 		 {
-			 JSONObject calle = new JSONObject();
-			 calle.put("calle", Tcalle.getText());
-			 info.add(calle.toJSONString());
+			 info.put("calle", Tcalle.getText());
 		 }
 		 
 		 if(TgEst.getText() != null)
 		 {
-			 JSONObject gEst = new JSONObject();
-			 gEst.put("gEst", TgEst.getText());
-			 info.add(info.toJSONString());
+			 info.put("gEst", TgEst.getText());
 		 }
 		 
 		 if(Ttel.getText() != null)
 		 {
-			 JSONObject tel = new JSONObject();
-			 tel.put("tel", Ttel.getText());
-			 info.add(tel.toJSONString());
+			 info.put("tel", Ttel.getText());
 		 }
 		 
 		 if(TedoC.getText() != null)
 		 {
-			 JSONObject edoC = new JSONObject();
-			 edoC.put("gEst", TgEst.getText());
-			 info.add(info.toJSONString());
+			 info.put("gEst", TgEst.getText());
 		 }
 		 
 		 if(Tsex.getText() != null)
 		 {
-			 JSONObject sex = new JSONObject();
-			 sex.put("sex", Tsex.getText());
-			 info.add(sex.toJSONString());
+			 info.put("sex", Tsex.getText());
 		 }
 		 
 		 if(Tine.getText() != null)
 		 {
-			 JSONObject ine = new JSONObject();
-			 ine.put("ine", Tine.getText());
-			 info.add(ine.toJSONString());
+			 info.put("ine", Tine.getText());
 		 }
 		 
 		 if(Tcarr.getText() != null)
 		 {
-			 JSONObject carr = new JSONObject();
-			 carr.put("carr", Tcarr.getText());
-			 info.add(carr.toJSONString());
+			 info.put("carr", Tcarr.getText());
 		 }
 		 
 		 if(Tinst.getText() != null)
 		 {
-			 JSONObject inst = new JSONObject();
-			 inst.put("inst", Tinst.getText());
-			 info.add(inst.toJSONString());
+			 info.put("inst", Tinst.getText());
 		 }	
 		 
 		 if(Tname.getText() != null && Tid.getText() != null && Tdep != null && Tcurp != null && Trfc != null && Tsueldo != null && tip != 0)
 		 {
-			 JSONObject workers = new JSONObject();
-			 workers.put("trabajador", Tname.getText() + " " + Tid.getText());
-			 workers.put("info", info);
+			 JSONArray workers = new JSONArray();
+//			 workers.put("trabajador", Tname.getText() + " " + Tid.getText());
+			 workers.add(info);
 			 try(FileWriter file = new FileWriter("workers.json"))
 			 {
 				 file.write(workers.toJSONString());
